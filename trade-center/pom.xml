@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.lgx</groupId>
+        <artifactId>core-collections</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>trade-center</artifactId>
+    <packaging>pom</packaging>
+
+    <name>trade-center</name>
+    <description>Trade Center Module</description>
+
+    <!-- 模块声明 -->
+    <modules>
+        <module>trade-center-server</module>
+        <module>trade-center-common</module>
+        <module>trade-client</module>
+        <module>trade-center-order</module>
+        <module>trade-center-aftersale</module>
+        <module>trade-center-domain</module>
+        <module>trade-center-discount</module>
+        <module>trade-center-marketing</module>
+    </modules>
+</project>
