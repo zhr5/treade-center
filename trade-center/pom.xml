@@ -21,7 +21,7 @@
         <module>trade-center-server</module>
         <module>trade-center-common</module>
         <module>trade-client</module>
-        <module>trade-center-order</module>
+        <module>trade-center-entity.order</module>
         <module>trade-center-aftersale</module>
         <module>trade-center-domain</module>
         <module>trade-center-discount</module>

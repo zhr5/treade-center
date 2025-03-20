@@ -102,13 +102,13 @@
 // 示例：通过扩展点实现社区特色需求
 public class CommunityDeliveryService implements DeliveryStrategy {
     @Override
-    public void schedule(Order order) {
-        if (order.hasCommunityPickup()) { 
+    public void schedule(Order entity.order) {
+        if (entity.order.hasCommunityPickup()) { 
             // 调用物业系统获取自提柜空位
             PropertyService.getPickupLocker().reserve();
         } else {
             // 走标准同城配送流程
-            defaultStrategy.schedule(order);
+            defaultStrategy.schedule(entity.order);
         }
     }
 }
@@ -202,7 +202,7 @@ public interface OrderService {
     Order queryOrder(String orderId);
     
     // 扩展点（由各业务模块实现）
-    default void afterOrderCreated(Order order) {} // 钩子方法，用于业务扩展
+    default void afterOrderCreated(Order entity.order) {} // 钩子方法，用于业务扩展
 }
 ```
 
@@ -250,7 +250,7 @@ graph LR
 #### 2. **扩展性保障**
 ```xml
 <!-- 通过策略模式实现差异化流程 -->
-<order-strategy>
+<entity.order-strategy>
   <biz-type name="community_mall">
     <step>库存预占 → 支付 → 分配自提柜</step>
     <dependency>库存中心 | 物流中心</dependency>
@@ -259,7 +259,7 @@ graph LR
     <step>工单生成 → 物业派单 → 服务确认</step>
     <dependency>工单系统</dependency>
   </biz-type>
-</order-strategy>
+</entity.order-strategy>
 ```
 
 
@@ -281,13 +281,13 @@ graph LR
 ### 四、运维部署建议
 ```yaml
 # 微服务部署示例
-order-service:  # 交易中心核心服务
+entity.order-service:  # 交易中心核心服务
   replicas: 3
   config: 
     - 统一状态机配置
     - 支付渠道权重
 
-community-order-plugin:  # 社区电商扩展插件 
+community-entity.order-plugin:  # 社区电商扩展插件 
   replicas: 2
   config:
     - 拼团超时时间
